@@ -1,5 +1,10 @@
 public class myCompare {
-    static int myCompareTo(String o1, String o2) {
+
+    myCompare(String o1, String o2) {
+        myCompareTo(o1, o2);
+    }
+
+    int myCompareTo(String o1, String o2) {
         char[] one = o1.toCharArray();
         char[] two = o2.toCharArray();
         int result = 0;
@@ -20,8 +25,8 @@ public class myCompare {
     public static void main(String[] args) {
         String tt = "Java";
         String ss = "Javaaa";
-        System.out.println(tt.compareTo(ss));
-        int compare = myCompareTo(tt, ss);
-        System.out.println(compare);
+
+        new myCompare(tt, ss);
+
     }
 }
