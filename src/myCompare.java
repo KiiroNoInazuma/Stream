@@ -26,8 +26,6 @@ public class myCompare {
         String str1 = "Java";
         String str2 = "Java";
 
-
-
         new myCompare(str1, str2);
 
     }
