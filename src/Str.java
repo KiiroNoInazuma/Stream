@@ -9,13 +9,18 @@ public class Str {
         System.out.println(predicate.test(str));
     }
 
-    public static <T, U> Function<T, U> ternary(Function<? super T, ? extends U> function) {
-        return function::apply;
+    public static <T, U> Function<T, U> ternary(
+            Predicate<? super T> predicate,
+            Function<? super T, ? extends U> plus,
+            Function<? super T, ? extends U> minus) {
+        return t -> predicate.test(t) ? plus.apply(t) : minus.apply(t);
     }
 
     public static void main(String[] args) {
-        String x = ternary(String::valueOf).apply("10");
-        System.out.println(x);
-
+        Predicate<Integer> predicate = x -> x > 0;
+        Function<Integer, String> fun = x -> "положительное";
+        Function<Integer, String> funny = x -> "отрицательное";
+        String str = ternary(predicate, fun, funny).apply(-10);
+        System.out.println(str);
     }
 }
