@@ -14,12 +14,11 @@ public class myCompare {
             result = one[i] - two[i];
             break;
         }
-        if (one.length > two.length && result == 0) {
-            result += one.length - two.length;
-        } else if (one.length < two.length && result == 0) {
+        if (one.length != two.length && result == 0) {
             result += one.length - two.length;
         }
         System.out.println(result);
+
     }
 
     public static void main(String[] args) {
