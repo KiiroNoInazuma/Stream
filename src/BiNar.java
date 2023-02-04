@@ -11,5 +11,6 @@ public class BiNar {
 
     public static void main(String[] args) {
         num(1, 3, 5, 4, 5, 6);
+
     }
 }
