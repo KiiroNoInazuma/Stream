@@ -4,7 +4,7 @@ public class myCompare {
         myCompareTo(o1, o2);
     }
 
-    int myCompareTo(String o1, String o2) {
+    void myCompareTo(String o1, String o2) {
         char[] one = o1.toCharArray();
         char[] two = o2.toCharArray();
         int result = 0;
@@ -19,14 +19,16 @@ public class myCompare {
         } else if (one.length < two.length && result == 0) {
             result += one.length - two.length;
         }
-        return result;
+        System.out.println(result);
     }
 
     public static void main(String[] args) {
-        String tt = "Java";
-        String ss = "Javaaa";
+        String str1 = "Java";
+        String str2 = "Java";
 
-        new myCompare(tt, ss);
+
+
+        new myCompare(str1, str2);
 
     }
 }
