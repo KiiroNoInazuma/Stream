@@ -11,16 +11,21 @@ public class Str {
 
     public static <T, U> Function<T, U> ternary(
             Predicate<? super T> predicate,
+            Predicate<? super T> predicateZero,
             Function<? super T, ? extends U> plus,
-            Function<? super T, ? extends U> minus) {
-        return t -> predicate.test(t) ? plus.apply(t) : minus.apply(t);
+            Function<? super T, ? extends U> minus,
+            Function<? super T, ? extends U> zero) {
+
+        return t -> predicate.test(t) ? plus.apply(t) : (predicateZero.test(t) ? zero.apply(t) : minus.apply(t));
     }
 
     public static void main(String[] args) {
         Predicate<Integer> predicate = x -> x > 0;
-        Function<Integer, String> fun = x -> "положительное";
-        Function<Integer, String> funny = x -> "отрицательное";
-        String str = ternary(predicate, fun, funny).apply(-10);
+        Predicate<Integer> predicateZero = x -> x == 0;
+        Function<Integer, String> fun = x -> "положительное число";
+        Function<Integer, String> funny = x -> "отрицательное число";
+        Function<Integer, String> zero = x -> "ноль";
+        String str = ternary(predicate, predicateZero, fun, funny, zero).apply(0);
         System.out.println(str);
     }
 }
