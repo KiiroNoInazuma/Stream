@@ -14,7 +14,7 @@ public class Str {
     }
 
     public static void main(String[] args) {
-        int x = ternary(Integer::intValue).apply(10);
+        String x = ternary(String::valueOf).apply("10");
         System.out.println(x);
 
     }
